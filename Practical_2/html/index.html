@@ -1,0 +1,274 @@
+<html>
+<head>
+<title>CMP717 Practical 2</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>  
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;	
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 1160px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td img {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1><span style = "text-transform:capitalize;">Fatih Demirtas</span> <span style="color: #6BCD1D">(N19130867)</span></h1>
+</div>
+</div>
+<div class="container">
+
+<h2><span "color: #FF0000"><strong>CMP 717 - Practical 2: Patch-based image denoising using learned dictionaries</strong></span></h2>
+
+<!-- <div style="float: right; padding: 20px">
+<img src="placeholder.jpg" />
+<p style="font-size: 14px">Example of a right floating element.</p>
+</div> -->
+
+
+</br>
+<h3> <strong>Problem  1.1</strong></h3>
+<p> For Problem 1.1, I wrote a main script. I changed "Image_Denoising_Test.m" file to adapt for different parameters. Results of PSNR values are taken as output. There were some visualization codes in initial codes. I update this part according to "debug_mode" argument.</p>
+
+<table border=1, align="center">
+<td align="center">
+<a href="../html/updates.png"><img src="../html/updates.png" width="100%"/></a>
+</td>
+</table>
+
+<p> I set up an experiment mode architecture. In this mode, patch size and number of atoms are investigated. Different setup are illustrated, with the patch sizes and the number of atoms varying. At some number of atoms, for example 20, Matrix is singular matrix and we couldn't get inverse of it. And I got an error like below; </p>
+
+<table border=1, align="center">
+<td align="center">
+<a href="../html/warning.png"><img src="../html/warning.png" width="100%"/></a>
+</td>
+</table>
+<p> Due to this problem I couldn't complete intensive experiment. I just try for some number of atoms like [64 81 121 144]. I found these numbers of atoms from <a href="https://www.researchgate.net/publication/253906898_Use_of_Learned_Dictionaries_in_Tomographic_Reconstruction"> Vincent Etter et al.</a> In this article, 48 81 144 and 512 atoms are used.</p>
+
+<table border=5>
+<caption><strong>Number of Atoms vs Patch Size</strong></caption>
+<tr>
+<td>Number Of Atoms = 64, Patch Size = 4x4 vs 8x8</td>
+<td>Number Of Atoms = 81, Patch Size = 4x4 vs 8x8</td>
+</tr>
+<tr>
+<td>
+<a href="../html/results/output_plots/sigmaXatoms64size4.png"><img src="../html/results/output_plots/sigmaXatoms64size4.png" width="40%"/></a>
+<a href="../html/results/output_plots/sigmaXatoms64size8.png"><img src="../html/results/output_plots/sigmaXatoms64size8.png" width="40%"/></a>
+</td>
+<td>
+<a href="../html/results/output_plots/sigmaXatoms81size4.png"><img src="../html/results/output_plots/sigmaXatoms81size4.png" width="40%"/></a>
+<a href="../html/results/output_plots/sigmaXatoms81size8.png"><img src="../html/results/output_plots/sigmaXatoms81size8.png" width="40%"/></a>
+</td>
+</tr>
+<tr>
+<td>Number Of Atoms = 121, Patch Size = 4x4 vs 8x8</td>
+<td>Number Of Atoms = 144, Patch Size = 4x4 vs 8x8</td>
+</tr>
+<tr>
+<td>
+<a href="../html/results/output_plots/sigmaXatoms121size4.png"><img src="../html/results/output_plots/sigmaXatoms121size4.png" width="40%"/></a>
+<a href="../html/results/output_plots/sigmaXatoms121size8.png"><img src="../html/results/output_plots/sigmaXatoms121size8.png" width="40%"/></a>
+</td>
+<td>
+<a href="../html/results/output_plots/sigmaXatoms144size4.png"><img src="../html/results/output_plots/sigmaXatoms144size4.png" width="40%"/></a>
+<a href="../html/results/output_plots/sigmaXatoms144size8.png"><img src="../html/results/output_plots/sigmaXatoms144size8.png" width="40%"/></a>
+</td>
+</tr>
+</table>
+
+<p> According to experimental results, To get more gain from K-SVD, we need to use high number of atoms and large patch size. Also iteration number results in better results. </p>
+
+<p> With the increase of atom size, flat areas in Barbara image become more and more smooth, however, the edge is blurring, and the contrast is decreased. This outcome is checked by other researchs. For example, in <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8067458"> LINA JIA et al.</a> 
+They obtained results in the same direction as our result. </p>
+
+
+<table border=1, align="center">
+<td align="center">
+<a href="../html/barbara_atomsize.png"><img src="../html/barbara_atomsize.png" width="100%"/></a>
+</td>
+</table>
+
+
+<h3> <strong>Problem  1.2</strong></h3>
+
+<p> In this section, training data is the most significant case. Noisy traning data has include close properties with test data. We have limited amount of data. Due to this reason, results are not good as original implementation. In the table below, several traning data is used. Used data can be viewed from "../data" folder.</p> 
+
+<table border=5>
+<tr>
+<td>External Training with training data (sigma 20, 40)</td>
+<td>Original Training Method(sigma 20, 40)</td>
+</tr>
+<tr>
+<td>
+<a href="../html/results/external_training/fullset_training_output_20.png"><img src="../html/results/external_training/fullset_training_output_20.png" width="40%"/></a>
+<a href="../html/results/external_training/fullset_training_output_40.png"><img src="../html/results/external_training/fullset_training_output_40.png" width="40%"/></a>
+</td>
+<td>
+<a href="../html/results/external_training/self_training_out.png"><img src="../html/results/external_training/self_training_out.png" width="40%"/></a>
+<a href="../html/results/external_training/self_training_out_40.png"><img src="../html/results/external_training/self_training_out_40.png" width="40%"/></a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../html/results/external_training/fullset_training_output_20_2.png"><img src="../html/results/external_training/fullset_training_output_20_2.png" width="40%"/></a>
+<a href="../html/results/external_training/fullset_training_output_40_2.png"><img src="../html/results/external_training/fullset_training_output_40_2.png" width="40%"/></a>
+</td>
+<td>
+<a href="../html/results/external_training/self_training_out_20_2.png"><img src="../html/results/external_training/self_training_out_20_2.png" width="40%"/></a>
+<a href="../html/results/external_training/self_training_out_40_2.png"><img src="../html/results/external_training/self_training_out_40_2.png" width="40%"/></a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../html/results/external_training/fullset_training_output_20_3.png"><img src="../html/results/external_training/fullset_training_output_20_3.png" width="40%"/></a>
+<a href="../html/results/external_training/fullset_training_output_40_3.png"><img src="../html/results/external_training/fullset_training_output_40_3.png" width="40%"/></a>
+</td>
+<td>
+<a href="../html/results/external_training/self_training_out_20_3.png"><img src="../html/results/external_training/self_training_out_20_3.png" width="40%"/></a>
+<a href="../html/results/external_training/self_training_out_40_3.png"><img src="../html/results/external_training/self_training_out_40_3.png" width="40%"/></a>
+</td>
+</tr>
+</table>
+
+
+<p> Experimental results are compared with results on the other researchs. Our results are very close to results of other reserchs. For example figure below are cited from <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8067458"> LINA JIA et al.</a></p>
+<table border=1, align="center">
+<td align="center">
+<a href="../html/barbara_article.png"><img src="../html/barbara_article.png" width="80%"/></a>
+</td>
+</table>
+
+
+</br>
+<h3> Conclusion</h3>
+<p> Experimental results show that when we increase atom size (number of atoms), PSNR value is firstly increasing then decreasing. There is a global maximum point on the atom size (number of atoms) vs PSNR graph. We need to choose correct and efficient atom size. </p>
+<p> Unlike atom size (number of atoms), when we increase sigma value, PSNR value is always decreasing. To sum up for Problem 1.1, we need choose parameters carefully. </p>
+
+<p> Traning samples (data) is very significant for second part. If we do not use related training images with test images results are not better. It is highly dependent to data.</p> 
+</div>
+</body>
+</html>
