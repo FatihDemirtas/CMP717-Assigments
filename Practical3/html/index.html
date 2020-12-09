@@ -1,0 +1,515 @@
+<html>
+<head>
+<title>CMP717 Practical 2</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>  
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;	
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 1160px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td img {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1><span style = "text-transform:capitalize;">Fatih Demirtas</span> <span style="color: #6BCD1D">(N19130867)</span></h1>
+</div>
+</div>
+<div class="container">
+
+<h2><span "color: #FF0000"><strong>CMP 717 – Practical 3: Convolutional Neural Networkss</strong></span></h2>
+
+<!-- <div style="float: right; padding: 20px">
+<img src="placeholder.jpg" />
+<p style="font-size: 14px">Example of a right floating element.</p>
+</div> -->
+
+
+</br>
+<h3> <strong>Problem 1: Colourization as Regression</strong></h3>
+
+<ul>
+  <li><b>1.1) Describe the model RegressionCNN.</b></li>
+  
+	<table border=1, align="center">
+	<td align="center">
+	<a href="./highlighting/RegressionCNN_summary.png"><img src="./highlighting/RegressionCNN_summary.png" width="100%"/></a>
+	</td>
+	</table>
+  
+  <li><b>1.2) How many epochs are we training the CNN model in the given setting?</b></li>
+  
+  <p> 25 Epochs  </p>
+ <div> 
+  	<table border=1,style="float: left">
+	<td align="center">
+	<a href="./highlighting/Epochs.png"><img src="./highlighting/Epochs.png" width="20%"/></a>
+	<a href="./highlighting/regression_output.png"><img src="./highlighting/regression_output.png" width="60%"/></a>
+	</td>
+	</table>
+
+ </div>
+ 
+ 
+  <li><b> 1.3) Comment on how the results (output images, training loss) change as we increase or decrease the number of epochs.</b></li>
+		<table border=5, align="center">
+		<caption><strong># of Epoch vs Loss Value</strong></caption>
+	    <tr>
+			<th>RegressionCNN Output</th>
+			<th>Loss Plot</th>
+			<th>Final Loss</th>
+			
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/regression_output_epoch_10.png"><img src="./highlighting/regression_output_epoch_10.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/loss_plot_epoch_10.png"><img src="./highlighting/loss_plot_epoch_10.png" width="50%"/></a>
+		</td>
+		<td>
+		<p>0.0107</p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<a href="./highlighting/regression_output_epoch_20.png"><img src="./highlighting/regression_output_epoch_20.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/loss_plot_epoch_20.png"><img src="./highlighting/loss_plot_epoch_20.png" width="50%"/></a>
+		</td>
+		<td>
+		<p>0.0086</p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<a href="./highlighting/regression_output_epoch_25.png"><img src="./highlighting/regression_output_epoch_25.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/loss_plot_epoch_25.png"><img src="./highlighting/loss_plot_epoch_25.png" width="50%"/></a>
+		</td>
+		<td>
+		<p>0.0092</p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<a href="./highlighting/regression_output_epoch_30.png"><img src="./highlighting/regression_output_epoch_30.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/loss_plot_epoch_30.png"><img src="./highlighting/loss_plot_epoch_30.png" width="50%"/></a>
+		</td>
+		<td>
+		<p>0.0080</p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<a href="./highlighting/regression_output_epoch_40.png"><img src="./highlighting/regression_output_epoch_40.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/loss_plot_epoch_40.png"><img src="./highlighting/loss_plot_epoch_40.png" width="50%"/></a>
+		</td>
+		<td>
+		<p>0.0077</p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<a href="./highlighting/regression_output_epoch_100.png"><img src="./highlighting/regression_output_epoch_100.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/loss_plot_epoch_100.png"><img src="./highlighting/loss_plot_epoch_100.png" width="50%"/></a>
+		</td>
+		<td>
+		<p>0.0060</p>
+		</td>
+		</tr>
+		</table>
+		
+		<p> While number of epoch is increasing, training loss value and validation loss value are decreasing. But the acceleration of the decreasing of the loss value is increasing. After some epoch, loss value reachs the plateu and does not decrease. 
+		The output images of the RegressionCNN are better until 25 epoch. After 25 epoch, there is no improvements on the output. Because, overfitting can occur at large number of epochs. 
+		</p>
+		<li><p><b> 1.4) How could using the RGB colour space be problematic?</b></li>
+		In computer vision, Euclidean Distance is generally used to measure the color distance between two colors. And how to deal with illumination change is still an important research topic. However, With respect to human eye, Euclidean Distance does not perform well under illumination change.
+		The whole point of the L*a*b* color space is to match human vision.
+
+		Human vision is trichromatic because of the three different cone types in our eyes. All color models are thus three-dimensional; however, we can choose arbitrary mappings between three-dimensional points and colors. Color models vary in what their three dimensions mean.
+
+		Color models like RGB and HSL start with an intuitive notion of how a color can be represented as three numbers and end up with relatively simple systems that are easy to understand but have nothing to do with how we actually see. Human vision is like all biological systems: it is non-intuitive and messy.
+
+		L*a*b* trades the simplicity and intuitiveness of RGB or HSL for a system in which two of the dimensions are completely opaque in exchange for the following useful properties:
+
+		The color space it defines (its "gamut") includes all perceivable colors.
+		Its dimensions are non-linearly scaled such that Euclidean distance corresponds to perceptual distance i.e. if you have two pairs of colors red and light red and green and light green and each pair appears to be equally similar then when each color's L*a*b* values are treated as points in three-dimensional space,
+		the Euclidean distance between red and light red and the Euclidean distance between green and light green will be the same.<a href="https://www.hindawi.com/journals/mpe/2018/4652526/">[  check  ]</a>
+		</p>
+		<li><b> 1.5) How does framing colourization as a classification problem alleviate the above problem? </b></li> 
+		
+		Framing colourization problem as a classification problem force the neural network to choose a color that it belives to be the most accurate instead of the mediore, average guess.
+</ul>  
+
+
+<h3> <strong>Problem 2: Colourization as Classification</strong></h3>
+	<ul>
+	<li><b>2.1) Complete the model CNN in colourization.ipynb.</b></li>
+	
+	<p>
+		<i>Implementation of the model CNN is completed in colourization.ipynb!</i>
+	</p>
+	
+	<li><b>2.2) Run main training loop of CNN in colourization.ipynb on Colab.</b></li>
+	<p> Compared to regression model, The colour accuracy is much more accurate. Even though there are pixels with wrong colour or are still gray, many of the objects have similar color compare to the targets.
+	Some of the wrong-coloured objects from validation images include a gray sky instead of a blue sky, and a white horse instead of a yellow one.</p>
+	</ul>
+
+
+
+<h3> <strong> Problem 3: Skip Connections</strong></h3>
+	
+	<table border=5, align="center">
+	    <tr>
+			<td> 
+				<a href="./highlighting/skip_connections.png"><img src="./highlighting/skip_connections.png" width="100%"/></a>
+			</td>
+		</tr>
+	</table>
+
+	<ul>
+		<li><b>3.1) Add a skip connection from the first layer to the last, second layer to the second last, etc.</b></li>
+			<i>Implementation of the model CNN is completed in colourization.ipynb!</i>
+		<li><b>3.2) Train the ”UNet” model for the same amount of epochs as the previous CNN.</b></li>
+			Skip connections improves the overall accuracy of the model. The validation loss decreases from 1.8 to 1.30. So, validation accuracy increases from 33% to 49%.
+			<p><b> Why does these improvements occur when skip connections are added? </b></p>
+			<p><b> (1) </b> The model with skip connections has more trainable parameters than the previous CNN. So, the model with skip connections can learn more complicated features.</p>
+			<p><b> (2) </b> Some information is lost during the pooling in previous CNN. Adding skip connections provides some of those lost information to next layers.</p>
+			
+		<li><b>3.3) Describe the effect of batch sizes on the training/validation loss, and the final image outputs. </b></li>
+		While increasing batch size, Training time gets lower. If we use batch_size = 1, training time reaches to the highest value.
+		Additionally, According to Figure below, Increasing batch size results in "decreasing training and validation accuracy" and also "inreasing training and validation loss values" 
+		
+		<table border=5, align="center", style="width:1000px">
+		<caption><strong>Batch Size Effect</strong></caption>
+	    <tr>
+			<th>Batch Size</th>
+			<th>Validation Loss</th>
+			<th>Validation Accuracy</th>	
+	    </tr>
+		<tr>
+			<th>50</th>
+			<th>1.32</th>
+			<th>50%</th>	
+		</tr>
+		<tr>
+			<th>100</th>
+			<th>1.36</th>
+			<th>49%</th>	
+		</tr>
+		<tr>
+			<th>500</th>
+			<th>1.52</th>
+			<th>43%</th>	
+		</tr>
+		<tr>
+			<th>1000</th>
+			<th>1.63</th>
+			<th>41%</th>	
+		</tr>
+		</table>
+		
+		<p> </p>
+		<table border=5, align="center">
+	    <tr>
+			<th>RegressionCNN Output</th>
+			<th>Loss Plot</th>	
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/batch_size_effect_outputs.png"><img src="./highlighting/batch_size_effect_outputs.png" width="70%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/batch_size_effect_plots.png"><img src="./highlighting/batch_size_effect_plots.png" width="55%"/></a>
+		</td>
+		</table>
+	</ul>
+
+
+
+<h3><strong>Problem 4: Super-Resolution</strong></h3>
+	<ul>
+		<li><b>4.1) What is the resolution difference between the downsized input image and output image?</b></li>
+		The resolution of the output image is 1/16 of the input image. Because each average pool layer with kernel_size = 2 reduce the resolution of the image to 1/4 of the original image.  
+		<li><b>4.2) Give at least two reasons why conv nets are better than bilinear interpolation. </b></li>
+			<p>The results from both models are almost close to each other. However, UNET has a little bit lower loss value. The bilinear interpolation results looks like a blurred version of target image.</p>
+			<p>ConvNets are better, Because :<p>
+			<p><b>(1)</b> With more parameters and nonlinearity, a neural network is capable of capturing more informaiton and regularities in reconstracting the picture.
+			While bilinear interpolation is only weighted average of two weighted averages.</p>
+			<p><b>(2)</b> ConvNets can learn and accomodate to some specific characterestics of the target.  </p>
+			<p><b>(3)</b> The drawback of bilinear interpolation is that it is both memory and computationally intensive: bilinear interpolation increases the feature size quadratically while keeping the same
+			amount of “information” as measured in the number of floats. </p>
+			
+	</ul>
+	
+<h3><strong>Problem 5: Visualizing Intermediate Activations </strong></h3>
+	<ul>
+		<li><b>5.1) How are the activation in the first few layers different from the later layers? </b></li>
+		The activations in the first layer of CNN seems to resemble the input picture a lot. It seems to be extracting different information such as gradient of intensity in the input image.
+		Many details from the original input image is still visible. In the next layers, the activation is more unclear. While some still roughly maintain the shape of the input image, others are not obvious.
+		<table border=5, align="center">
+	    <tr>
+		<th>Conv1 Output</th>
+		<th>Conv4 Output</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/activation_layers/conv1_out_0.png"><img src="./highlighting/activation_layers/conv1_out_0.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/activation_layers/conv4_out_0.png"><img src="./highlighting/activation_layers/conv4_out_0.png" width="100%"/></a>
+		</td>
+		</tr>
+		<tr>
+		<th>Conv2 Output</th>
+		<th>Conv3 Output</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/activation_layers/conv2_out_0.png"><img src="./highlighting/activation_layers/conv2_out_0.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/activation_layers/conv3_out_0.png"><img src="./highlighting/activation_layers/conv3_out_0.png" width="100%"/></a>
+		</td>
+		</tr>
+		</table>
+		
+
+		<li><b>5.2)Visualize the activations of the colourization UNet for a few test examples. How do the activations differ from the CNN activations?</b></li>
+		First 3 layers are same as CNN's. Because there is no different approach until fourth layer. After third layer, We concatenate the same size of layers and create new layer. 
+	    According to output of activation layers, more details can be observed. So, model can learn more complex features than CNN. This should be a result of passing in the image
+		directly into last layer. 
+		<table border=5, align="center">
+	    <tr>
+		<th>Conv1 Output</th>
+		<th>Conv4 Output</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/activation_layers_unet/conv1_out_0.png"><img src="./highlighting/activation_layers_unet/conv1_out_0.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/activation_layers_unet/conv4_out_0.png"><img src="./highlighting/activation_layers_unet/conv4_out_0.png" width="100%"/></a>
+		</td>
+		</tr>
+		<tr>
+		<th>Conv2 Output</th>
+		<th>Conv3 Output</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/activation_layers_unet/conv2_out_0.png"><img src="./highlighting/activation_layers_unet/conv2_out_0.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/activation_layers_unet/conv3_out_0.png"><img src="./highlighting/activation_layers_unet/conv3_out_0.png" width="100%"/></a>
+		</td>
+		</tr>
+		</table>
+		
+		<li><b>5.3) Visualize the activations of the super-resolution UNet for a few test examples. Describe how the activations differ from the colourization models?</b></li>
+		Different from previos activations for colorization, the activations for super-resolution are mostly blurry and unclear. The reason could be that the input image itself is with 
+		low resoulution. The activations for next layers resemble the target image a little bit more.
+
+
+		<table border=5, align="center">
+	    <tr>
+		<th></th>
+		<th>Output Image</th>
+		<th>Loss Plot</th>
+	    </tr>
+		<tr>
+		<th rowspan="2">CNN</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/cnn_output.png"><img src="./highlighting/cnn_output.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/cnn_plot.png"><img src="./highlighting/cnn_plot.png" width="100%"/></a>
+		</td>
+		</tr>
+		<tr>
+		<th rowspan="2">UNET</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/unet_output.png"><img src="./highlighting/unet_output.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/unet_plot.png"><img src="./highlighting/unet_plot.png" width="100%"/></a>
+		</td>
+		</tr>
+		
+		<tr>
+		<th rowspan="2">SUPER CNN</th>
+	    </tr>
+		<tr>
+		<td>
+		<a href="./highlighting/super_output.png"><img src="./highlighting/super_output.png" width="100%"/></a>
+		</td>
+		<td>
+		<a href="./highlighting/super_plot.png"><img src="./highlighting/super_plot.png" width="100%"/></a>
+		</td>
+		</tr>
+		
+		</table>
+	</ul>
+
+<h3><strong>Problem 6: Conceptional Problems</strong></h3>
+
+	<ul>
+		<li><b>6.1) What are some hyperparameters that could be tuned?  </b></li>
+		<p><b> (1) </b> Learning Rate</p>
+		<p><b> (2) </b> Number of Layers</p>
+		<p><b> (3) </b> Kernel Size</p>
+		<p><b> (4) </b> Number of Filters</p>
+		<p><b> (5) </b> Activation Functions</p>
+		<p><b> (6) </b> Batch Size</p>
+		<p><b> (7) </b> Number of Epoch</p>
+		<li><b>6.2) In the RegressionCNN model, nn.MaxPool2d layers are applied after nn.ReLU activations,
+comment on how the output of CNN changes if we switch the order of the max-pooling and
+ReLU?  </b></li>
+		<p> RELU function is a non-decreasing dunction. Max pooling is a linear function. Max-pooling always chooses maximum value of a group of values. So, Output should not be changed.  </p>
+		<li><b>6.3) Describe how we can modify the trained models in this assignment to colourize test images that are larger than 32×32.   </b></li>
+		In order to obtain the best possible performance from these models, the training
+and testing data distributions should match. However, often data pre-processing procedures are
+different for training and testing. To solve this issue, we can train our model with different image sizes. Also we can crop ann resize related ROI from image. Image Augmentation can be employed.
+	
+	</ul>
+
+</div>
+</body>
+</html>
